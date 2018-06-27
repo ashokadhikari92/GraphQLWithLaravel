@@ -17,6 +17,6 @@ class AuthorsTableSeeder extends Seeder
 
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
 
-        factory(\App\Author::class,100)->create();
+        factory(\App\Author::class, 100)->create();
     }
 }

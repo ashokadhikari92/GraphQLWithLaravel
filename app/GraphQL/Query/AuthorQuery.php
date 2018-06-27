@@ -2,10 +2,10 @@
 
 namespace App\GraphQL\Query;
 
-use GraphQL;
 use App\Author;
-use GraphQL\Type\Definition\Type;
 use Folklore\GraphQL\Support\Query;
+use GraphQL;
+use GraphQL\Type\Definition\Type;
 
 class AuthorQuery extends Query
 {
@@ -16,6 +16,7 @@ class AuthorQuery extends Query
 
     /**
      * AuthorQuery constructor.
+     *
      * @param Author $author
      */
     public function __construct(Author $author)
@@ -25,11 +26,11 @@ class AuthorQuery extends Query
     }
 
     protected $attributes = [
-        'name' => 'authors'
+        'name' => 'authors',
     ];
 
     /**
-     * Define the GraphQL type
+     * Define the GraphQL type.
      *
      * @return \GraphQL\Type\Definition\ListOfType
      */
@@ -39,30 +40,31 @@ class AuthorQuery extends Query
     }
 
     /**
-     * Query arguments
+     * Query arguments.
      *
      * @return array
      */
     public function args()
     {
         return [
-            'id' => ['name' => 'id', 'type' => Type::int()],
-            'email' => ['name' => 'email', 'type' => Type::string()]
+            'id'    => ['name' => 'id', 'type' => Type::int()],
+            'email' => ['name' => 'email', 'type' => Type::string()],
         ];
     }
 
     /**
-     * Resolve the query
+     * Resolve the query.
      *
      * @param $root
      * @param $args
+     *
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
     public function resolve($root, $args)
     {
         if (isset($args['id'])) {
             $this->author->find($args['id']);
-        } else if (isset($args['email'])) {
+        } elseif (isset($args['email'])) {
             return $this->author->where('email', $args['email'])->get();
         } else {
             return $this->author->all();

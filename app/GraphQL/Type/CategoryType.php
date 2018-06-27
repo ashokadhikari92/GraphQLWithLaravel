@@ -2,26 +2,26 @@
 
 namespace App\GraphQL\Type;
 
-use GraphQL\Type\Definition\Type;
 use Folklore\GraphQL\Support\Type as GraphQLType;
+use GraphQL\Type\Definition\Type;
 
 class CategoryType extends GraphQLType
 {
     protected $attributes = [
-        'name' => 'Category'
+        'name' => 'Category',
     ];
 
     public function fields()
     {
         return [
             'id' => [
-                'type' => Type::int(),
-                'description' => 'Id of the category.'
+                'type'        => Type::int(),
+                'description' => 'Id of the category.',
             ],
             'name' => [
-                'type' => Type::string(),
-                'description' => 'Name of the category'
-            ]
+                'type'        => Type::string(),
+                'description' => 'Name of the category',
+            ],
         ];
     }
 }

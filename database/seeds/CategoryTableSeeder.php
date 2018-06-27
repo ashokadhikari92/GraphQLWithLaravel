@@ -12,12 +12,14 @@ class CategoryTableSeeder extends Seeder
 
     /**
      * CategoryTableSeeder constructor.
+     *
      * @param Category $category
      */
     public function __construct(Category $category)
     {
         $this->category = $category;
     }
+
     /**
      * Run the database seeds.
      *
@@ -37,6 +39,5 @@ class CategoryTableSeeder extends Seeder
         $this->category->insert(['name' => 'Review']);
         $this->category->insert(['name' => 'News']);
         $this->category->insert(['name' => 'Blog']);
-
     }
 }

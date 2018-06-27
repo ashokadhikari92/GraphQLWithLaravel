@@ -2,16 +2,14 @@
 
 namespace App\Providers;
 
-use App\GraphQL\Query\AuthorQuery;
 use App\GraphQL\Type\ArticleType;
 use App\GraphQL\Type\AuthorType;
 use App\GraphQL\Type\CategoryType;
-use Illuminate\Support\ServiceProvider;
 use GraphQL;
+use Illuminate\Support\ServiceProvider;
 
 class GraphQLServiceProvider extends ServiceProvider
 {
-
     /**
      * Bootstrap the application services.
      *
@@ -19,12 +17,11 @@ class GraphQLServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        GraphQL::addType(AuthorType::class,'Author');
+        GraphQL::addType(AuthorType::class, 'Author');
 
-        GraphQL::addType(CategoryType::class,'Category');
+        GraphQL::addType(CategoryType::class, 'Category');
 
-        GraphQL::addType(ArticleType::class,'Article');
-
+        GraphQL::addType(ArticleType::class, 'Article');
     }
 
     /**

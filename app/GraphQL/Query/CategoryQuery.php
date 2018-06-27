@@ -3,13 +3,12 @@
 namespace App\GraphQL\Query;
 
 use App\Category;
-use GraphQL;
 use Folklore\GraphQL\Support\Query;
+use GraphQL;
 use GraphQL\Type\Definition\Type;
 
 class CategoryQuery extends Query
 {
-
     private $category;
 
     public function __construct(Category $category)
@@ -17,8 +16,9 @@ class CategoryQuery extends Query
         parent::__construct();
         $this->category = $category;
     }
+
     protected $attributes = [
-        'name' => 'categories'
+        'name' => 'categories',
     ];
 
     public function type()
@@ -29,13 +29,13 @@ class CategoryQuery extends Query
     public function args()
     {
         return [
-            'id' => [ 'type' => Type::int()]
+            'id' => ['type' => Type::int()],
         ];
     }
 
     public function resolve($root, $args)
     {
-        if(isset($args['id'])){
+        if (isset($args['id'])) {
             return $this->category->find($args['id']);
         }
 

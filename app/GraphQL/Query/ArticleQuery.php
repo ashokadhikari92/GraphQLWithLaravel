@@ -3,15 +3,13 @@
 namespace App\GraphQL\Query;
 
 use App\Article;
-use GraphQL;
 use Folklore\GraphQL\Support\Query;
+use GraphQL;
 use GraphQL\Type\Definition\Type;
 
 class ArticleQuery extends Query
 {
-
     private $article;
-
 
     public function __construct(Article $article)
     {
@@ -20,7 +18,7 @@ class ArticleQuery extends Query
     }
 
     protected $attributes = [
-        'name' => 'articles'
+        'name' => 'articles',
     ];
 
     public function type()
@@ -32,14 +30,14 @@ class ArticleQuery extends Query
     {
         return [
             'id' => [
-                'type' => Type::int()
-            ]
+                'type' => Type::int(),
+            ],
         ];
     }
 
     public function resolve($root, $args)
     {
-        if(isset($args['id'])){
+        if (isset($args['id'])) {
             return $this->article->find($args['id']);
         }
 

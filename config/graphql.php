@@ -55,7 +55,7 @@ return [
      */
     'middleware' => [],
 
-    /**
+    /*
      * Any middleware for a specific 'graphql' schema
      */
     'middleware_schema' => [
@@ -78,11 +78,11 @@ return [
      * To dissable GraphiQL, set this to null
      */
     'graphiql' => [
-        'routes' => '/graphiql/{graphql_schema?}',
+        'routes'     => '/graphiql/{graphql_schema?}',
         'controller' => \Folklore\GraphQL\GraphQLController::class.'@graphiql',
         'middleware' => [],
-        'view' => 'graphql::graphiql',
-        'composer' => \Folklore\GraphQL\View\GraphiQLComposer::class,
+        'view'       => 'graphql::graphiql',
+        'composer'   => \Folklore\GraphQL\View\GraphiQLComposer::class,
     ],
 
     /*
@@ -119,14 +119,14 @@ return [
     'schemas' => [
         'default' => [
             'query' => [
-                'authors' => \App\GraphQL\Query\AuthorQuery::class,
+                'authors'    => \App\GraphQL\Query\AuthorQuery::class,
                 'categories' => \App\GraphQL\Query\CategoryQuery::class,
-                'articles' => \App\GraphQL\Query\ArticleQuery::class,
+                'articles'   => \App\GraphQL\Query\ArticleQuery::class,
             ],
             'mutation' => [
 
-            ]
-        ]
+            ],
+        ],
     ],
 
     /*
@@ -168,8 +168,8 @@ return [
      * for details. Disabled by default.
      */
     'security' => [
-        'query_max_complexity' => null,
-        'query_max_depth' => null,
-        'disable_introspection' => false
-    ]
+        'query_max_complexity'  => null,
+        'query_max_depth'       => null,
+        'disable_introspection' => false,
+    ],
 ];
